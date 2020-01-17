@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InventoryManagment</string>
+    <string name="title_app_name">FerreOspina</string>
+    <string name="subtitle_principal_menu">Menu Principal</string>
 </resources>
