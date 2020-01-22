@@ -2,4 +2,11 @@
     <string name="app_name">InventoryManagment</string>
     <string name="title_app_name">FerreOspina</string>
     <string name="subtitle_principal_menu">Menu Principal</string>
+    <string name="menu_item_company_title">Información de la Empresa</string>
+    <string name="menu_item_inventory_title">Gestionar Inventario</string>
+    <string name="menu_item_commercial_invoice_title">Generar Factura</string>
+    <string name="menu_item_home_title">Menu Principal</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

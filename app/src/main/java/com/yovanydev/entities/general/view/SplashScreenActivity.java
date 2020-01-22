@@ -1,4 +1,4 @@
-package com.yovanydev.entities;
+package com.yovanydev.entities.general.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

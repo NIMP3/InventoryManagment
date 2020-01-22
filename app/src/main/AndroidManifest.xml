@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".entities.PrincipalMenuActivity"></activity>
+        <activity android:name=".entities.general.view.PrincipalMenuActivity"></activity>
         <activity
-            android:name=".entities.SplashScreenActivity"
+            android:name=".entities.general.view.SplashScreenActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/MyFullScreen">
