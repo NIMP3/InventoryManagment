@@ -1,4 +1,4 @@
-package com.yovanydev.data.company.memory;
+package com.yovanydev.data.entities.company.memory;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

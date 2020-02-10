@@ -7,6 +7,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Locale;
+
 @Entity(tableName = Company.TABLE_NAME)
 public class Company {
 
@@ -75,5 +77,11 @@ public class Company {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format(Locale.getDefault(),"%s\n%s",this.name, this.owner);
     }
 }

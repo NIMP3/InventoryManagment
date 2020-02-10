@@ -3,36 +3,56 @@ package com.yovanydev.entities.company.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.yovanydev.R;
 import com.yovanydev.entities.company.model.Company;
+import com.yovanydev.entities.company.presenter.CompanyPresenter;
+import com.yovanydev.entities.company.presenter.ICompanyPresenter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CompanyFormFragment extends Fragment implements ICompanyView {
 
+    private ICompanyPresenter presenter;
+
+    private TextView tvCompanyInfo;
 
     public CompanyFormFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_company_form, container, false);
+        View view = inflater.inflate(R.layout.fragment_company_form, container, false);
+
+        tvCompanyInfo = view.findViewById(R.id.tvCompanyInfo);
+
+        if (presenter == null) {
+            presenter = new CompanyPresenter(getContext(), this);
+            presenter.getCompany();
+        }
+
+        return view;
     }
 
     @Override
     public void showCompany(Company company) {
-
+        tvCompanyInfo.setText(company.toString());
     }
 
     @Override
