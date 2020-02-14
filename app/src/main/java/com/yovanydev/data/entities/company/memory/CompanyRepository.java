@@ -1,4 +1,4 @@
-package com.yovanydev.data.company.memory;
+package com.yovanydev.data.entities.company.memory;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

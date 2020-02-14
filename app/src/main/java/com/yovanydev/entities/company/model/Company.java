@@ -21,7 +21,7 @@ public class Company {
     @ColumnInfo(name = "owner") @NonNull private String owner;
     @ColumnInfo(name = "email") @NonNull private String email;
 
-    public Company(String name, String address, String phone, String owner, String email) {
+    public Company(@NonNull String name, @NonNull String address, @NonNull String phone, @NonNull String owner, @NonNull String email) {
         this.name = name;
         this.address = address;
         this.phone = phone;
