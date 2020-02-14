@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 import com.yovanydev.R;
+import com.yovanydev.entities.company.view.CompanyFormFragment;
 import com.yovanydev.entities.general.view.HomeFragment;
 import com.yovanydev.utilities.FragmentUtility;
 import com.yovanydev.utilities.ToolbarUtility;
@@ -49,6 +51,25 @@ public class PrincipalMenuActivity extends AppCompatActivity {
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                item.setChecked(true);
+                FragmentManager manager = getSupportFragmentManager();
+
+                switch (item.getItemId()) {
+                    case R.id.navHome:
+                        FragmentUtility.replaceFragment(manager, new HomeFragment(), R.id.mainContainer);
+                        break;
+                    case R.id.navCompany:
+                        FragmentUtility.replaceFragment(manager, new CompanyFormFragment(), R.id.mainContainer);
+                        break;
+                }
+
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     @Override
