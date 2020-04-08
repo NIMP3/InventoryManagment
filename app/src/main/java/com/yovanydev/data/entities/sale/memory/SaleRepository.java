@@ -5,6 +5,7 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import com.yovanydev.data.entities.company.memory.CompanyDataBase;
 import com.yovanydev.entities.sale.model.Sale;
 
 import java.util.List;
@@ -16,8 +17,8 @@ public class SaleRepository {
 
     private SaleRepository(Context context) {
         Context appContext = context.getApplicationContext();
-        SaleDataBase dataBase = Room
-                .databaseBuilder(appContext, SaleDataBase.class, Sale.TABLE_NAME)
+        CompanyDataBase dataBase = Room
+                .databaseBuilder(appContext, CompanyDataBase.class, Sale.TABLE_NAME)
                 .allowMainThreadQueries()
                 .build();
 

@@ -4,5 +4,6 @@ import com.yovanydev.entities.company.model.Company;
 
 public interface ICompanyInteractor {
     void getCompany();
-    void saveCompany(Company company);
+    void addCompany(Company company);
+    void updateCompany(Company company);
 }

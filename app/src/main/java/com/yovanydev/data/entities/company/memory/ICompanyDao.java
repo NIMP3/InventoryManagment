@@ -1,5 +1,6 @@
 package com.yovanydev.data.entities.company.memory;
 
+import androidx.annotation.CheckResult;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,5 +21,6 @@ interface ICompanyDao {
     void deleteCompany(Company company);
 
     @Update
-    void updateCompany(Company company);
+    @CheckResult
+    int updateCompany(Company company);
 }

@@ -2,7 +2,9 @@ package com.yovanydev.entities.company.interactor;
 
 import android.content.Context;
 
+import com.yovanydev.R;
 import com.yovanydev.data.entities.company.memory.CompanyRepository;
+import com.yovanydev.data.entities.general.ConstantsRepository;
 import com.yovanydev.entities.company.model.Company;
 import com.yovanydev.entities.company.presenter.ICompanyPresenter;
 import com.yovanydev.entities.general.view.IView;
@@ -26,21 +28,25 @@ public class CompanyInteractor implements ICompanyInteractor {
     public void getCompany() {
         Company company = repository.getCompany();
         if (company != null) presenter.showCompany(company);
-        else {
-            company = new Company(
-                    "FerreOspina", "Barrio Amistad - Ospina/Nariño",
-                    "3168460999", "Miguel Jesús Orbes Romo", "miguelorbes@hotmail.com"
-            );
-            repository.addCompany(company);
-            presenter.showCompany(company);
-            //presenter.showNoResults(this.view);
-        }
+        else presenter.showNoResults(this.view);
     }
 
     @Override
-    public void saveCompany(Company company) {
-        Company current_company = repository.getCompany();
-        if (current_company == null) repository.addCompany(company);
-        else repository.updateCompany(company);
+    public void addCompany(Company company) {
+        repository.addCompany(company);
+        company = repository.getCompany();
+
+        if (company != null) {
+            presenter.showCompanyPostAdd(company);
+            presenter.showSuccessfulMessage(this.view, this.context.getString(R.string.message_successful_transaction), ConstantsRepository.CODE_DIALOG);
+        }
+        else presenter.showSystemError(this.view, ConstantsRepository.CODE_DIALOG);
+    }
+
+    @Override
+    public void updateCompany(Company company) {
+        boolean transactionFlag = repository.updateCompany(company);
+        if (transactionFlag) presenter.showSuccessfulMessage(this.view, this.context.getString(R.string.message_successful_transaction), ConstantsRepository.CODE_DIALOG);
+        else presenter.showSystemError(this.view, ConstantsRepository.CODE_DIALOG);
     }
 }

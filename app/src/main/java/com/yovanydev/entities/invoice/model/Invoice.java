@@ -14,14 +14,14 @@ public class Invoice {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id") private int id = 0;
 
-    @ColumnInfo(name = "date") @NonNull private Date date;
+    @ColumnInfo(name = "date") @NonNull private Long date;
     @ColumnInfo(name = "customer") @NonNull private String customer;
     @ColumnInfo(name = "status") @NonNull private String status;
     @ColumnInfo(name = "address") @NonNull private String address;
     @ColumnInfo(name = "payment") @NonNull private Float payment;
     @ColumnInfo(name = "total_value") @NonNull private Float total_value;
 
-    public Invoice(@NonNull Date date, @NonNull String customer, @NonNull String status, @NonNull String address, @NonNull Float payment, @NonNull Float total_value) {
+    public Invoice(@NonNull Long date, @NonNull String customer, @NonNull String status, @NonNull String address, @NonNull Float payment, @NonNull Float total_value) {
         this.date = date;
         this.customer = customer;
         this.status = status;
@@ -39,11 +39,11 @@ public class Invoice {
     }
 
     @NonNull
-    public Date getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(@NonNull Date date) {
+    public void setDate(@NonNull Long date) {
         this.date = date;
     }
 

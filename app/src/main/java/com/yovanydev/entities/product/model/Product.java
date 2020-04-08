@@ -5,8 +5,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.yovanydev.entities.general.model.Type;
-
 @Entity(tableName = Product.TABLE_NAME)
 public class Product {
     public static final String TABLE_NAME = "product";
@@ -15,7 +13,7 @@ public class Product {
     @ColumnInfo(name = "id") private int id = 0;
 
     @ColumnInfo(name = "name") @NonNull private String name;
-    @ColumnInfo(name = "type") @NonNull private Type type;
+    @ColumnInfo(name = "type") @NonNull private Integer typeCode;
     @ColumnInfo(name = "width") @NonNull private Float width;
     @ColumnInfo(name = "height") @NonNull private Float height;
     @ColumnInfo(name = "thickness") @NonNull private Float thickness;
@@ -24,9 +22,9 @@ public class Product {
     @ColumnInfo(name = "purchase_value") @NonNull private Float purchase_value;
     @ColumnInfo(name = "total_value") @NonNull private Float total_value;
 
-    public Product(@NonNull String name, @NonNull Type type, @NonNull Float width, @NonNull Float height, @NonNull Float thickness, @NonNull Integer quantity, @NonNull Float gain_value, @NonNull Float purchase_value) {
+    public Product(@NonNull String name, @NonNull Integer typeCode, @NonNull Float width, @NonNull Float height, @NonNull Float thickness, @NonNull Integer quantity, @NonNull Float gain_value, @NonNull Float purchase_value) {
         this.name = name;
-        this.type = type;
+        this.typeCode = typeCode;
         this.width = width;
         this.height = height;
         this.thickness = thickness;
@@ -54,12 +52,12 @@ public class Product {
     }
 
     @NonNull
-    public Type getType() {
-        return type;
+    public Integer getTypeCode() {
+        return typeCode;
     }
 
-    public void setType(@NonNull Type type) {
-        this.type = type;
+    public void setTypeCode(@NonNull Integer typeCode) {
+        this.typeCode = typeCode;
     }
 
     @NonNull

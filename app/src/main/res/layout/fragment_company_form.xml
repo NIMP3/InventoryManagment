@@ -11,21 +11,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+        app:layout_constraintGuide_end="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="24dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilCompanyName"
@@ -34,7 +34,7 @@
         android:paddingTop="20dp"
         app:errorEnabled="true"
         app:errorTextAppearance="@style/Error"
-        app:hintEnabled="true"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/tilCompanyAddress"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.5"
@@ -47,7 +47,11 @@
             style="@style/EditTextForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_hint_company_name" />
+            android:drawableStart="@drawable/ic_accessible_company"
+            android:drawableLeft="@drawable/ic_accessible_company"
+            android:drawablePadding="4dp"
+            android:hint="@string/text_hint_company_name"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -58,7 +62,7 @@
         app:errorEnabled="true"
         app:errorTextAppearance="@style/Error"
         app:hintAnimationEnabled="true"
-        app:hintEnabled="true"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/tilCompanyPhone"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,7 +74,11 @@
             style="@style/EditTextForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_hint_company_address" />
+            android:drawableStart="@drawable/ic_accessible_address"
+            android:drawableLeft="@drawable/ic_accessible_address"
+            android:drawablePadding="4dp"
+            android:hint="@string/text_hint_company_address"
+            android:inputType="textPostalAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -92,7 +100,11 @@
             style="@style/EditTextForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_hint_company_phone" />
+            android:drawableStart="@drawable/ic_accessible_phone"
+            android:drawableLeft="@drawable/ic_accessible_phone"
+            android:drawablePadding="4dp"
+            android:hint="@string/text_hint_company_phone"
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -114,7 +126,11 @@
             style="@style/EditTextForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_hint_company_email" />
+            android:drawableStart="@drawable/ic_accessible_email"
+            android:drawableLeft="@drawable/ic_accessible_email"
+            android:drawablePadding="4dp"
+            android:hint="@string/text_hint_company_email"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -122,10 +138,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:errorEnabled="true"
         app:errorTextAppearance="@style/Error"
         app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnAction"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -136,12 +153,16 @@
             style="@style/EditTextForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_hint_company_owner" />
+            android:drawableStart="@drawable/ic_accessible_owner"
+            android:drawableLeft="@drawable/ic_accessible_owner"
+            android:drawablePadding="4dp"
+            android:hint="@string/text_hint_company_owner"
+            android:inputType="textAutoCorrect" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnAction"
-        style="@style/TextAppearance.AppCompat.Widget.Button"
+        style="@style/RaisedButtonDark"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -162,5 +183,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="16dp" />
+        app:layout_constraintGuide_end="24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

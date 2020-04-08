@@ -5,6 +5,7 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import com.yovanydev.data.entities.company.memory.CompanyDataBase;
 import com.yovanydev.entities.product.model.Product;
 
 import java.util.List;
@@ -16,8 +17,8 @@ public class ProductRepository {
 
     private ProductRepository(Context context) {
         Context appContext = context.getApplicationContext();
-        ProductDataBase dataBase = Room
-                .databaseBuilder(appContext, ProductDataBase.class, Product.TABLE_NAME)
+        CompanyDataBase dataBase = Room
+                .databaseBuilder(appContext, CompanyDataBase.class, Product.TABLE_NAME)
                 .allowMainThreadQueries()
                 .build();
         productDao = dataBase.getProductDao();

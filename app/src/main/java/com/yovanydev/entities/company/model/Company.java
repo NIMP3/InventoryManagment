@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Locale;
@@ -22,6 +23,15 @@ public class Company {
     @ColumnInfo(name = "phone") @NonNull private String phone;
     @ColumnInfo(name = "owner") @NonNull private String owner;
     @ColumnInfo(name = "email") @NonNull private String email;
+
+    @Ignore
+    public Company() {
+        this.name = "";
+        this.address = "";
+        this.phone = "";
+        this.owner = "";
+        this.email = "";
+    }
 
     public Company(@NonNull String name, @NonNull String address, @NonNull String phone, @NonNull String owner, @NonNull String email) {
         this.name = name;

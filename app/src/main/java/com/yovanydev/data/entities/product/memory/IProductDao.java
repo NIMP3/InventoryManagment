@@ -11,7 +11,7 @@ import com.yovanydev.entities.product.model.Product;
 import java.util.List;
 
 @Dao
-interface IProductDao {
+public interface IProductDao {
     @Query("SELECT * FROM " + Product.TABLE_NAME)
     List<Product> getProducts();
 

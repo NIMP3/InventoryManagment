@@ -1,11 +1,15 @@
 package com.yovanydev.entities.company.view;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +22,22 @@ import com.yovanydev.R;
 import com.yovanydev.entities.company.model.Company;
 import com.yovanydev.entities.company.presenter.CompanyPresenter;
 import com.yovanydev.entities.company.presenter.ICompanyPresenter;
+import com.yovanydev.utilities.DialogUtility;
+import com.yovanydev.utilities.SnackBarUtility;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CompanyFormFragment extends Fragment implements ICompanyView, View.OnClickListener {
 
+    private static final int INSERT_TYPE = 0;
+    private static final int UPDATE_TYPE = 1;
+
     private ICompanyPresenter presenter;
+    private Company company = new Company();
+    private AlertDialog transactionDialog;
+    private int transactionType = INSERT_TYPE;
+    private Activity activity;
 
     private TextInputLayout tilName, tilOwner, tilAddress, tilPhone, tilEmail;
     private EditText etName, etOwner, etAddress, etPhone, etEmail;
@@ -60,49 +73,65 @@ public class CompanyFormFragment extends Fragment implements ICompanyView, View.
         btnAction = view.findViewById(R.id.btnAction);
         btnAction.setOnClickListener(this);
 
-        if (presenter == null) {
-            presenter = new CompanyPresenter(getContext(), this);
-            presenter.getCompany();
-        }
+        activity = getActivity();
 
         return view;
     }
 
     @Override
-    public void showCompany(Company company) {
-        if (company != null) {
-            btnAction.setText(getString(R.string.text_button_update_company));
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-            etName.setText(company.getName());
-            etOwner.setText(company.getOwner());
-            etAddress.setText(company.getAddress());
-            etPhone.setText(company.getPhone());
-            etEmail.setText(company.getEmail());
+        if (presenter == null) {
+            presenter = new CompanyPresenter(getContext(), this);
+            presenter.getCompany();
         }
 
     }
 
     @Override
-    public void saveCompany() {
-        Company company = new Company(
-                etName.getText().toString(),
-                etAddress.getText().toString(),
-                etPhone.getText().toString(),
-                etOwner.getText().toString(),
-                etEmail.getText().toString()
-        );
+    public void showCompany(Company company) {
+        this.company = company;
 
-        presenter.saveCompany(company);
+        if (company.getId() != 0){
+            transactionType = UPDATE_TYPE;
+            btnAction.setText(getString(R.string.text_button_update_company));
+        }
+
+        etName.setText(company.getName());
+        etOwner.setText(company.getOwner());
+        etAddress.setText(company.getAddress());
+        etPhone.setText(company.getPhone());
+        etEmail.setText(company.getEmail());
+
+    }
+
+    @Override
+    public void saveCompany() {
+        company.setName(etName.getText().toString());
+        company.setAddress(etAddress.getText().toString());
+        company.setPhone(etPhone.getText().toString());
+        company.setOwner(etOwner.getText().toString());
+        company.setEmail(etEmail.getText().toString());
+
+        if (transactionType == INSERT_TYPE) presenter.addCompany(company);
+        else presenter.updateCompany(company);
     }
 
     @Override
     public void showProgressbar() {
+        transactionDialog = DialogUtility.createMessageDialog(
+                activity,
+                getString(R.string.message_process_transaction),
+                DialogUtility.ANIMATION_LOAD
+        );
 
+        transactionDialog.show();
     }
 
     @Override
     public void hideProgressbar() {
-
+        if (transactionDialog.isShowing()) transactionDialog.dismiss();
     }
 
     @Override
@@ -112,12 +141,18 @@ public class CompanyFormFragment extends Fragment implements ICompanyView, View.
 
     @Override
     public void showDialogMessage(String error, int typeOfError) {
-
+        DialogUtility.updateDialog(transactionDialog, activity, error, typeOfError);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (transactionDialog.isShowing()) transactionDialog.dismiss();
+            }
+        }, 2000);
     }
 
     @Override
     public void showSnackBarMessage(String error, int typeOfError) {
-
+        if (getView() != null) SnackBarUtility.createSnackBar(getView(), error, typeOfError).show();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.yovanydev.data.entities.company.memory;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.room.Room;
 
@@ -39,8 +40,8 @@ public class CompanyRepository {
         companyDao.deleteCompany(company);
     }
 
-    public void updateCompany(Company company) {
-        companyDao.updateCompany(company);
+    public boolean updateCompany(Company company) {
+        return companyDao.updateCompany(company) > 0;
     }
 
 }

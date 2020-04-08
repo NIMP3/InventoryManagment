@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.yovanydev.entities.invoice.model.Invoice;
@@ -11,21 +12,26 @@ import com.yovanydev.entities.product.model.Product;
 
 import static androidx.room.ForeignKey.CASCADE;
 
-@Entity(foreignKeys = {
-        @ForeignKey(
-                entity = Product.class,
-                parentColumns = "id",
-                childColumns = "product_id",
-                onDelete = CASCADE
-        ),
-        @ForeignKey(
-                entity = Invoice.class,
-                parentColumns = "id",
-                childColumns = "invoice_id",
-                onDelete = CASCADE
-        )
-},
-tableName = Sale.TABLE_NAME)
+@Entity(
+        foreignKeys = {
+            @ForeignKey(
+                    entity = Product.class,
+                    parentColumns = "id",
+                    childColumns = "product_id",
+                    onDelete = CASCADE
+            ),
+            @ForeignKey(
+                    entity = Invoice.class,
+                    parentColumns = "id",
+                    childColumns = "invoice_id",
+                    onDelete = CASCADE
+            )
+        },
+        indices = {
+            @Index( value = {"product_id"}),
+            @Index( value = {"invoice_id"})
+        },
+        tableName = Sale.TABLE_NAME)
 
 public class Sale {
     public static final String TABLE_NAME = "sale";

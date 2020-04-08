@@ -21,6 +21,13 @@ public interface IBasePresenter<T> {
     void showSystemError(T view, int type);
 
     /**
+     * Envia un mensaje (Error del Servidor) a la vista
+     * @param view : Vista actual
+     * @param type : tipo de vista a utilizar para visualizar el error
+     */
+    void showServerError(T view, int type);
+
+    /**
      * Envia un mensaje (Sin conexión a internet) a la vista
      * @param view : Vista actual
      * @param type : Tipo vista a utilizar para visualizar el error
