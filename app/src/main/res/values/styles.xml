@@ -19,4 +19,17 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+    <style name="Error" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">#F37F7F</item>
+    </style>
+
+    <style name="EditTextForm" parent="AppTheme">
+        <item name="android:padding">12dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:fontFamily">@font/helveticaneue</item>
+        <item name="android:background">@drawable/style_edit_text_form</item>
+    </style>
 </resources>
