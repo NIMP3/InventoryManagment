@@ -5,5 +5,5 @@ import com.yovanydev.entities.general.view.IView;
 
 public interface ICompanyView extends IView {
     void showCompany(Company company);
-    void saveCompany(Company company);
+    void saveCompany();
 }

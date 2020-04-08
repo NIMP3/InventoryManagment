@@ -20,4 +20,11 @@
     <string name="text_question">PREGUNTA</string>
     <string name="text_info">INFORMACIÓN</string>
     <string name="text_load">CARGANDO</string>
+    <string name="text_hint_company_name">Empresa</string>
+    <string name="text_hint_company_address">Dirección</string>
+    <string name="text_hint_company_phone">Teléfono</string>
+    <string name="text_hint_company_email">Correo Electrónico</string>
+    <string name="text_hint_company_owner">Propietario</string>
+    <string name="text_button_register_company">REGISTRAR</string>
+    <string name="text_button_update_company">Actualizar</string>
 </resources>
