@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.yovanydev.R
 import com.yovanydev.databinding.FragmentProductListBinding
+import com.yovanydev.entities.general.model.Header
 import com.yovanydev.entities.product.model.Product
 import com.yovanydev.entities.product.viewmodel.ProductViewModel
 
@@ -40,6 +41,9 @@ class ProductListFragment : Fragment() {
 
         val handlers = ProductHandlers(productViewModel)
         binding.handlers = handlers
+
+        val header = Header("Inventario","Listado de productos actual", true)
+        binding.header = header
 
         setupListUpdate()
     }

@@ -10,6 +10,9 @@
         <variable
             name="handlers"
             type="com.yovanydev.entities.product.view.ProductListFragment.ProductHandlers" />
+        <variable
+            name="header"
+            type="com.yovanydev.entities.general.model.Header" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -18,7 +21,8 @@
         android:fitsSystemWindows="true"
         tools:context=".entities.product.view.ProductListFragment">
 
-        <include layout="@layout/actionbar_toolbar" />
+        <include layout="@layout/actionbar_toolbar"
+            app:header="@{header}"/>
 
         <include layout="@layout/content_product_list"
             app:model="@{model}"/>
