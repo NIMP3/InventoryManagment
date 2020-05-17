@@ -31,4 +31,7 @@
     <string name="text_button_update_company">Actualizar</string>
     <string name="message_successful_transaction">¡Transacción Exitosa!</string>
     <string name="message_process_transaction">Procesando Transacción...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

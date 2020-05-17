@@ -10,7 +10,7 @@ import androidx.room.Update;
 import com.yovanydev.entities.company.model.Company;
 
 @Dao
-interface ICompanyDao {
+public interface ICompanyDao {
     @Query("SELECT * FROM "+ Company.TABLE_NAME + " LIMIT 1")
     Company getCompany();
 

@@ -15,12 +15,12 @@ public class CompanyRepository {
 
     private CompanyRepository(Context context) {
         Context appContext = context.getApplicationContext();
-        CompanyDataBase dataBase = Room
+        /*CompanyDataBase dataBase = Room
                 .databaseBuilder(appContext, CompanyDataBase.class, Company.TABLE_NAME)
                 .allowMainThreadQueries()
                 .build();
 
-        companyDao = dataBase.getCompanyDao();
+        companyDao = dataBase.getCompanyDao();*/
     }
 
     public static CompanyRepository getRepository(Context context) {

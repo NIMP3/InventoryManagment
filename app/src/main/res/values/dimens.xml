@@ -3,4 +3,10 @@
     <dimen name="header_height">192dp</dimen>
     <dimen name="header_padding_16">16dp</dimen>
     <dimen name="drawable_padding">8dp</dimen>
+    <dimen name="marging_fab_16">16dp</dimen>
+    <dimen name="cardview_margin_16">16dp</dimen>
+    <dimen name="cardview_margin_4">4dp</dimen>
+    <dimen name="cardview_elevation_5">5dp</dimen>
+    <dimen name="cardview_corner_radius_8">8dp</dimen>
+    <dimen name="recycler_view_margin_16">16dp</dimen>
 </resources>

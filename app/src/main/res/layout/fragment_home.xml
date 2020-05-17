@@ -15,7 +15,7 @@
         android:layout_marginRight="16dp"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/circleImageView3"
-        app:layout_constraintEnd_toStartOf="@+id/circleImageView2"
+        app:layout_constraintEnd_toStartOf="@+id/ivInventory"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,17 +23,19 @@
         app:srcCompat="@drawable/img_company" />
 
     <ImageView
-        android:id="@+id/circleImageView2"
+        android:id="@+id/ivInventory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:clickable="true"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/circleImageView"
         app:layout_constraintTop_toTopOf="@+id/circleImageView"
-        app:srcCompat="@drawable/img_inventory" />
+        app:srcCompat="@drawable/img_inventory"
+        android:focusable="true" />
 
     <ImageView
         android:id="@+id/circleImageView3"
@@ -84,9 +86,9 @@
         android:text="Inventario"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/circleImageView2"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView2"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/ivInventory"
+        app:layout_constraintStart_toStartOf="@+id/ivInventory"
+        app:layout_constraintTop_toBottomOf="@+id/ivInventory" />
 
     <TextView
         android:id="@+id/textView4"
